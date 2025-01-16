@@ -1,0 +1,485 @@
+@charset "UTF-8";
+/*
+	관리자용 페이지의 css만 있는 파일입니다.
+	헷갈릴 때는 <head> 에서 가장 하단에 자리한 css 파일의 경로를 확인하세요.
+	각 페이지는 Crtl + F 로 페이지명을 입력해서 찾는 게 빠릅니다. (ex. list.jsp > list )
+
+	<css 파일>
+	main.css : 공통으로 적용되는 css 및 메인 페이지 전용 (header, footer, login 페이지 등 포함)
+	page.css : 대메뉴 페이지 레이아웃 (신제품, 이벤트, 카테고리, 상품상세 페이지 등)
+	sub.css : 서브 페이지+상위 페이지 포함 css (마이페이지 등)
+	manager.css : 관리자 페이지용 css
+ */
+
+
+/* 공통 */
+body {
+	flex-direction: row;
+	justify-content: flex-start;
+	font-size: 1vw;
+}
+
+nav {
+	width: 20%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0;
+	background-color: #F4E9E3;
+	div {
+		width: 100%;
+		background-color: #FFFFFF;
+	}
+}
+
+nav div.upper {
+	height: 20%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 1.3vw;
+	color: #FF6653;
+	a {
+		width: 80%;
+	}
+	a img {
+		width: 100%;
+	}
+}
+
+nav div.upper span {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 3% 0 7% 0;
+	p {
+		width: 30%;
+		height: 2vw;
+		margin: 0;
+		margin-left: 5%;
+		line-height: 1.85vw;
+		font-weight: bold;
+	}
+	div#timer {
+		width: 35%;
+		height: 2vw;
+		justify-content: left;
+		padding-left: 7%;
+		border: 0.1vw solid #FF6653;
+		border-radius: 1vw;
+		line-height: 1.85vw;
+	}
+	button {
+		width: 25%;
+		height: 2vw;
+		margin-left: -5%;
+		background-color: #FF6653;
+		border: 0.1vw solid #FF6653;
+		border-radius: 0.1vw 1vw 1vw 0.1vw;
+		line-height: 1.5vw;
+		font-size: 1.5vw;
+		color: #FFFFFF;
+	}
+}
+
+nav ul {
+	width: 80%;
+	height: 100%;
+	padding: 0;
+	li a {
+		width: 100%;
+		height: 20%;
+		font-weight: bold;
+		font-size: 1.8vw;
+	}
+	li#main.On a {
+		color: #FF6653;
+	}
+}
+
+nav ol {
+	display: none;
+	margin-left: 10%;
+	padding: 3% 0;
+	li {
+		margin-bottom: 5%:
+	}
+	li a {
+		font-weight: normal;
+		font-size: 1.5vw;
+		color: #FF6653;
+	}
+	li a:hover {
+		text-decoration: underline 0.12vw #FF6653;
+		color: #FF6653;
+	}
+}
+
+nav ol.On {
+	display: block;
+	a {
+		text-decoration: none;
+		font-weight: bold;
+	}
+}
+
+nav div.bottom {
+	height: 5vw;
+	justify-content: space-between;
+	align-items: center;
+	padding: 3%;
+	button {
+		width: 20%;
+		margin: 0;
+		background-color: #FFFFFF;
+		border: none;
+	}
+	button img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+
+section {
+	width: 80%;
+	height: 100vh;
+	flex-direction: column;
+	align-items: center;
+	h1.mainHeader {
+		width: 89%;
+		margin: 1.5% 0;
+		font-size: 2.5vw;
+		color: #FF6653;
+	}
+	h2.backLink {
+		width: 89%;
+		margin: 0;
+		margin-bottom: 1.5%;
+		font-size: 1.2vw;
+		a {
+			width: 100%;
+			color: #C81C21;
+		}
+	}
+}
+
+section aside {
+	width: 90%;
+	margin-bottom: -0.07vw;
+	ul {
+		width: 100%;
+		display: flex;
+		margin: 0;
+	}
+	ul li {
+		width: 20%;
+		height: 3vw;
+		margin-right: 1%;
+		border: 0.2vw solid #FF6653;
+		border-radius: 0.5vw 0.5vw 0 0;
+		text-align: center;
+	}
+	ul li a {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		line-height: 3vw;
+		font-size: 1.5vw;
+		color: #FF6653;
+	}
+	ul li.On {
+		background-color: #FF6653;
+	}
+	ul li.On a {
+		color: #FFFFFF;
+	}
+}
+
+section article {
+	width: 90%;
+	height: 70%;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border: 0.2vw solid #FF6653;
+	form {
+		width: 90%;
+		margin: 1% 0;
+	}
+}
+
+section article table.listTBL {
+	width: 100%;
+	margin: 0;
+	margin-bottom: 10%;
+	text-align: center;
+	tr {
+		width: 100%;
+		height: 2.7vw;
+		white-space: nowrap;
+	}
+	tr.tableHeader {
+		position: sticky;
+		top: 0;
+		background-color: #FFE0DC;
+		color: #C81C21;
+		th {
+			width: 10%;
+		}
+	}
+	td {
+		width: 15%;
+		border-bottom: 0.2vw dashed #FF6653;
+	}
+	tr:last-child td {
+		border: none;
+	}
+	td.small {
+		width: 5%;
+	}
+	td button {
+		width: 30%;
+		margin: 0 1%;
+		background-color: #FF6653;
+		border: 0.12vw solid #FF6653;
+		border-radius: 0.5vw;
+		text-align: center;
+		font-size: 1vw;
+		color: #FFFFFF;
+	}
+	td button:hover {
+		background-color: #E55B4A;
+		border-color: #E55B4A;
+	}
+}
+
+
+/* sub_useList */
+section article table.listTBL#userList {
+	td.hidden {
+		display: none;
+	}
+	td button#btnView {
+		width: 20%;
+	}
+}
+
+
+/* sub_prodList */
+section article table.listTBL#prodList {
+	th, td {
+		width: 10%;
+	}
+	td img {
+		width: 70%;
+		margin: 0;
+		margin-top: 5%;
+	}
+	td button {
+		width: 45%;
+	}
+	td button#btnUpdate {
+		background-color: #39AE86;
+		border-color: #39AE86;
+	}
+	td button#btnUpdate:hover {
+		background-color: #2D8B6B;
+		border-color: #2D8B6B;
+	}
+}
+
+
+/* sub_updateProd */
+section article table.formTBL {
+	width: 100%;
+	tr {
+		width: 100%;
+	}
+	th {
+		width: 10%;
+		height: 3.7vw;
+		text-align: left;
+		font-size: 1.3vw;
+	}
+	td {
+		width: 30%;
+		font-weight: bold;
+		font-size: 1.2vw;
+	}
+	td input, td select {
+		width: 70%;
+		height: 2.5vw;
+		padding: 0 2%;
+		background-color: #FBF8F6;
+		border-radius: 0.2vw;
+		font-weight: bold;
+		font-size: 1.2vw;
+	}
+	td select {
+		margin-right: 1.3%;
+		text-align: center;
+		text-indent: 0;
+	}
+	td input[readonly] {
+		background-color: #F4E9E3;
+		color: #C81C21;
+	}
+	td input[type="number"] {
+		text-align: right;
+	}
+	td.path input {
+		width: 100%;
+	}
+	td.button {
+		text-align: right;
+	}
+	td button {
+		width: 20%;
+		height: 2vw;
+		background-color: #FF6653;
+		border: 0.12vw solid #FF6653;
+		border-radius: 0.5vw;
+		font-weight: bold;
+		font-size: 1vw;
+		color: #FFFFFF;
+	}
+	td button:hover {
+		background-color: #E55B4A;
+		border-color: #E55B4A;
+	}
+	td button[type="submit"] {
+		background-color: #39AE86;
+		border-color: #39AE86;
+	}
+	td button[type="submit"]:hover {
+		background-color: #2D8B6B;
+		border-color: #2D8B6B;
+	}
+}
+
+
+/* sub_orderList */
+section article table.listTBL#orderList {
+	th, td {
+		width: 10%;
+	}
+	td button {
+		width: 40%;
+	}
+}
+
+
+/* sub_orderDetail */
+section article#orderDetail {
+	padding: 2%;
+	tr.orderName {
+		border-bottom: 0.2vw dashed #FF6653;
+		text-align: center;
+		th, td input {
+			text-align: center
+		}
+		td {
+			text-align: left;
+		}
+	}
+	tr.orderID {
+		td input {
+			text-align: center
+		}
+	}
+	th {
+		width: 20%;
+		height: 5vw;
+	}
+	td {
+		width: 25%;
+	}
+}
+
+
+/* sub_reviewChart */
+section article table.listTBL#reviewChart {
+	th, td {
+		width: 10%;
+	}
+	td.content {
+		text-align: left;
+	}
+	td img {
+		width: 70%;
+		margin: 0;
+		margin-top: 5%;
+	}
+	td a {
+		color: #39AE86;
+	}
+	td a:hover {
+		text-decoration:  0.1vw underline #39AE86;
+	}
+}
+
+/* sub_askList */
+section article#askList {
+	height: 75%;
+}
+
+
+/* updateAsk */
+section article table.formTBL#updateAsk {
+	th {
+		width: 7%;
+		height: 3.5vw;
+	}
+	th.button {
+		text-align: center;
+	}
+	th button {
+		width: 20%;
+		height: 2vw;
+		background-color: #FF6653;
+		border: 0.12vw solid #FF6653;
+		border-radius: 0.5vw;
+		font-weight: bold;
+		font-size: 1vw;
+		color: #FFFFFF;
+	}
+	th button:hover {
+		background-color: #E55B4A;
+		border-color: #E55B4A;
+	}
+	th button[type="submit"] {
+		background-color: #39AE86;
+		border-color: #39AE86;
+	}
+	th button[type="submit"]:hover, th button[type="submit"]:disabled {
+		background-color: #2D8B6B;
+		border-color: #2D8B6B;
+	}
+	td {
+		width: 40%;
+	}
+	td input, td textarea {
+		width: 90%;
+		background-color: #FFFFFF;
+		border: 0.15vw solid #39AE86;
+		border-color: #39AE86;
+	}
+	td textarea {
+		height: 15vw;
+		padding: 2%;
+		border-radius: 0.2vw;
+		font-weight: bold;
+		font-size: 1vw;
+	}
+	td input[readonly], td textarea[readonly], td textarea:disabled {
+		background-color: #FBF8F6;
+		border-color: #FBF8F6;
+		color: #5E2728;
+	}
+}
